@@ -1,0 +1,156 @@
+.recommendations-page {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.recommendations-page h2 {
+  color: #333;
+  margin-bottom: 30px;
+}
+
+.generate-section {
+  background: white;
+  padding: 25px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  margin-bottom: 30px;
+}
+
+.generate-section h3 {
+  margin-top: 0;
+  color: #333;
+}
+
+.generate-section form {
+  display: grid;
+  grid-template-columns: 1fr 1fr auto;
+  gap: 15px;
+  align-items: flex-end;
+}
+
+.recommendations-list h3 {
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.rec-card {
+  background: white;
+  padding: 25px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+}
+
+.rec-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  padding-bottom: 15px;
+  border-bottom: 2px solid #667eea;
+}
+
+.rec-header h4 {
+  margin: 0;
+  color: #333;
+}
+
+.rec-content > * {
+  margin: 15px 0;
+}
+
+.skill-gaps,
+.learning-path,
+.interview-tips {
+  margin: 20px 0;
+}
+
+.skill-gaps h5,
+.learning-path h5,
+.interview-tips h5 {
+  margin: 10px 0 15px 0;
+  color: #333;
+}
+
+.skill-gaps ul,
+.interview-tips ul {
+  margin: 10px 0;
+  padding-left: 20px;
+}
+
+.skill-gaps li,
+.interview-tips li {
+  margin: 8px 0;
+  color: #666;
+}
+
+.path-steps {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.step {
+  display: flex;
+  gap: 15px;
+  padding: 15px;
+  background: #f8f9fa;
+  border-radius: 6px;
+  border-left: 4px solid #667eea;
+}
+
+.step-num {
+  min-width: 30px;
+  width: 30px;
+  height: 30px;
+  background: #667eea;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  font-weight: bold;
+  flex-shrink: 0;
+}
+
+.step-info {
+  flex: 1;
+}
+
+.step-info strong {
+  color: #333;
+  display: block;
+  margin-bottom: 5px;
+}
+
+.step-info p {
+  margin: 3px 0;
+  color: #666;
+  font-size: 14px;
+}
+
+.resources {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 8px;
+}
+
+.resource-tag {
+  background-color: #e7f3ff;
+  color: #0066cc;
+  padding: 3px 8px;
+  border-radius: 3px;
+  font-size: 12px;
+}
+
+@media (max-width: 768px) {
+  .generate-section form {
+    grid-template-columns: 1fr;
+  }
+
+  .step {
+    flex-direction: column;
+  }
+}

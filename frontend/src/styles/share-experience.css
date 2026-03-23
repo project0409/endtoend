@@ -1,0 +1,98 @@
+.share-experience {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.share-experience h2 {
+  color: #333;
+  margin-bottom: 30px;
+}
+
+.share-experience form {
+  background: white;
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  margin-bottom: 20px;
+}
+
+.add-item {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.add-item input,
+.add-item select {
+  flex: 1;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 14px;
+}
+
+.btn-add {
+  background-color: #28a745;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.btn-add:hover {
+  background-color: #218838;
+}
+
+.items-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 15px;
+}
+
+.item-tag {
+  background-color: #e9ecef;
+  padding: 8px 12px;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+}
+
+.btn-remove {
+  background: none;
+  border: none;
+  color: #dc3545;
+  cursor: pointer;
+  font-size: 18px;
+  padding: 0;
+  transition: color 0.3s;
+}
+
+.btn-remove:hover {
+  color: #c82333;
+}
+
+.form-group textarea {
+  resize: vertical;
+}
+
+@media (max-width: 768px) {
+  .form-row {
+    grid-template-columns: 1fr;
+  }
+
+  .share-experience form {
+    padding: 20px;
+  }
+}

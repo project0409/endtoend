@@ -1,0 +1,311 @@
+# GitHub Setup Instructions
+
+## Initialize Git Repository
+
+### 1. Initialize Git in Project Root
+```bash
+cd c:\Users\jampani jahnavi\OneDrive\Desktop\project
+git init
+```
+
+### 2. Create .gitignore File
+Create a file named `.gitignore` in the project root with the following content:
+
+```
+# Dependencies
+node_modules/
+*/node_modules/
+**/node_modules/
+
+# Environment variables
+.env
+*/.env
+**/.env
+
+# Build outputs
+build/
+dist/
+*/build/
+*/dist/
+
+# Logs
+*.log
+npm-debug.log*
+logs/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Testing
+coverage/
+
+# Production
+*.tgz
+```
+
+### 3. Add All Files to Git
+```bash
+git add .
+```
+
+### 4. Create Initial Commit
+```bash
+git commit -m "Initial commit: Graduate-Employee Interview Preparation Platform with 4 modules"
+```
+
+### 5. Create GitHub Repository
+1. Go to https://github.com
+2. Click "New Repository"
+3. Name: `interview-preparation-platform`
+4. Description: `Graduate-Employee Interview Preparation Platform - Final Year Project`
+5. Choose Public or Private
+6. DO NOT initialize with README (we already have code)
+7. Click "Create Repository"
+
+### 6. Link Local Repository to GitHub
+```bash
+# Replace YOUR_USERNAME with your GitHub username
+git remote add origin https://github.com/YOUR_USERNAME/interview-preparation-platform.git
+```
+
+### 7. Push to GitHub
+```bash
+# For first push
+git branch -M main
+git push -u origin main
+
+# For subsequent pushes
+git push
+```
+
+---
+
+## Alternative: Using GitHub Desktop
+
+### 1. Download GitHub Desktop
+- Download from: https://desktop.github.com/
+
+### 2. Add Repository
+1. Open GitHub Desktop
+2. File → Add Local Repository
+3. Choose: `c:\Users\jampani jahnavi\OneDrive\Desktop\project`
+4. Click "Add Repository"
+
+### 3. Create .gitignore
+- Create `.gitignore` file as shown above in project root
+
+### 4. Commit Changes
+1. Review changes in GitHub Desktop
+2. Add commit message: "Initial commit: Complete platform with 4 modules"
+3. Click "Commit to main"
+
+### 5. Publish to GitHub
+1. Click "Publish repository"
+2. Name: `interview-preparation-platform`
+3. Description: `Graduate-Employee Interview Preparation Platform`
+4. Choose Public/Private
+5. Click "Publish Repository"
+
+---
+
+## Project Structure on GitHub
+
+```
+interview-preparation-platform/
+├── Module1_UserAuthentication/
+│   ├── frontend/
+│   │   ├── public/
+│   │   ├── src/
+│   │   └── package.json
+│   └── backend/
+│       ├── controllers/
+│       ├── models/
+│       ├── routes/
+│       ├── middleware/
+│       ├── server.js
+│       └── package.json
+├── Module2_ExperienceSharing/
+│   ├── frontend/
+│   └── backend/
+├── Module3_PreparationGuidance/
+│   ├── frontend/
+│   └── backend/
+├── Module4_SkillGapAnalysis/
+│   ├── frontend/
+│   └── backend/
+├── SETUP_INSTRUCTIONS.txt
+├── GITHUB_INSTRUCTIONS.txt
+└── .gitignore
+```
+
+---
+
+## Updating Code on GitHub
+
+### After Making Changes
+```bash
+# Check status
+git status
+
+# Add all changes
+git add .
+
+# Commit with message
+git commit -m "Description of changes"
+
+# Push to GitHub
+git push
+```
+
+---
+
+## Cloning Repository (For Fresh Setup)
+
+### On Another Computer
+```bash
+# Clone repository
+git clone https://github.com/YOUR_USERNAME/interview-preparation-platform.git
+
+# Navigate to project
+cd interview-preparation-platform
+
+# Install dependencies for each module
+cd Module1_UserAuthentication/backend && npm install
+cd ../frontend && npm install
+
+cd ../../Module2_ExperienceSharing/backend && npm install
+cd ../frontend && npm install
+
+cd ../../Module3_PreparationGuidance/backend && npm install
+cd ../frontend && npm install
+
+cd ../../Module4_SkillGapAnalysis/backend && npm install
+cd ../frontend && npm install
+```
+
+---
+
+## Branch Management (Optional)
+
+### Create Feature Branches
+```bash
+# Create and switch to new branch
+git checkout -b feature/module1-enhancements
+
+# Make changes and commit
+git add .
+git commit -m "Enhanced Module 1 features"
+
+# Push branch to GitHub
+git push -u origin feature/module1-enhancements
+
+# Merge to main (after testing)
+git checkout main
+git merge feature/module1-enhancements
+git push
+```
+
+---
+
+## Common Git Commands
+
+```bash
+# View commit history
+git log
+
+# View remote repository
+git remote -v
+
+# Pull latest changes
+git pull
+
+# Discard local changes
+git checkout -- <file>
+
+# View differences
+git diff
+
+# Create new branch
+git branch <branch-name>
+
+# Switch branch
+git checkout <branch-name>
+
+# Delete branch
+git branch -d <branch-name>
+```
+
+---
+
+## GitHub Repository Settings
+
+### Add Repository Description
+1. Go to repository on GitHub
+2. Click "About" settings (gear icon)
+3. Add description: "Graduate-Employee Interview Preparation Platform - A comprehensive system for interview preparation with user authentication, experience sharing, preparation guidance, and skill gap analysis"
+4. Add topics: `react`, `nodejs`, `mongodb`, `express`, `interview-preparation`, `final-year-project`
+
+### Add README.md (Optional)
+Create `README.md` in project root:
+
+```markdown
+# Graduate-Employee Interview Preparation Platform
+
+A comprehensive platform connecting graduates with experienced professionals for interview preparation.
+
+## Modules
+1. **User Authentication** - Graduate and employee registration/login
+2. **Experience Sharing** - Share and browse interview experiences
+3. **Preparation Guidance** - Resources and checklists
+4. **Skill Gap Analysis** - Assess readiness and get learning paths
+
+## Tech Stack
+- Frontend: React.js
+- Backend: Node.js, Express.js
+- Database: MongoDB
+- Authentication: JWT
+
+## Setup
+See `SETUP_INSTRUCTIONS.txt` for detailed setup guide.
+```
+
+---
+
+## Collaboration (If Working in Team)
+
+### Add Collaborators
+1. Go to repository on GitHub
+2. Settings → Collaborators
+3. Add team members by username/email
+
+### Pull Request Workflow
+1. Create feature branch
+2. Make changes and push
+3. Create Pull Request on GitHub
+4. Review and merge
+
+---
+
+## Important Notes
+
+- **Never commit `.env` files** (contains secrets)
+- **Never commit `node_modules/`** (too large, can be reinstalled)
+- **Always pull before pushing** to avoid conflicts
+- **Write meaningful commit messages**
+- **Test code before pushing**
+
+---
+
+## Repository URL Format
+```
+https://github.com/YOUR_USERNAME/interview-preparation-platform
+```
+
+Replace `YOUR_USERNAME` with your actual GitHub username.

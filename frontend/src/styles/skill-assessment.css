@@ -1,0 +1,154 @@
+.skill-assessment {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.skill-assessment h2 {
+  color: #333;
+  margin-bottom: 30px;
+}
+
+.add-skill-form {
+  background: white;
+  padding: 25px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  margin-bottom: 30px;
+}
+
+.add-skill-form h3 {
+  margin-top: 0;
+  color: #333;
+}
+
+.add-skill-form form {
+  display: grid;
+  grid-template-columns: 1fr 1fr auto;
+  gap: 15px;
+  align-items: flex-end;
+}
+
+.skills-list {
+  background: white;
+  padding: 25px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  margin-bottom: 30px;
+}
+
+.skills-list h3 {
+  margin-top: 0;
+  color: #333;
+}
+
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 15px;
+}
+
+.skill-card {
+  background: #f8f9fa;
+  padding: 15px;
+  border-radius: 6px;
+  border-left: 4px solid #667eea;
+}
+
+.skill-card h4 {
+  margin: 0 0 10px 0;
+  color: #333;
+}
+
+.skill-card p {
+  margin: 5px 0;
+  color: #666;
+  font-size: 14px;
+}
+
+.btn-delete {
+  background-color: #dc3545;
+  color: white;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-top: 10px;
+  width: 100%;
+}
+
+.skill-gaps-analysis {
+  background: white;
+  padding: 25px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.skill-gaps-analysis h3 {
+  margin-top: 0;
+  color: #333;
+}
+
+.gaps-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin: 15px 0;
+}
+
+.gap-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  background: #f8f9fa;
+  border-radius: 4px;
+}
+
+.skill {
+  font-weight: 500;
+}
+
+.gap-status {
+  padding: 4px 12px;
+  border-radius: 4px;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.gap-status.high_gap {
+  background-color: #f8d7da;
+  color: #721c24;
+}
+
+.gap-status.manageable {
+  background-color: #d4edda;
+  color: #155724;
+}
+
+.recommendations {
+  margin-top: 20px;
+  padding-top: 20px;
+  border-top: 1px solid #ddd;
+}
+
+.recommendations h4 {
+  margin-top: 0;
+  color: #333;
+}
+
+.recommendations ul {
+  margin: 10px 0;
+  padding-left: 20px;
+}
+
+.recommendations li {
+  margin: 5px 0;
+  color: #666;
+}
+
+@media (max-width: 768px) {
+  .add-skill-form form {
+    grid-template-columns: 1fr;
+  }
+}

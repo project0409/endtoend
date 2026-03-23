@@ -1,0 +1,331 @@
+# Graduate-Employee Interview Preparation Platform
+
+## Complete Setup and Run Instructions
+
+### Prerequisites
+- Node.js (v14 or higher)
+- MongoDB (v4.4 or higher)
+- Git
+
+---
+
+## MODULE 1: USER AUTHENTICATION
+
+### Backend Setup
+```bash
+cd Module1_UserAuthentication/backend
+npm install
+```
+
+**Configure Environment:**
+- Edit `.env` file and update MongoDB URI if needed
+- Default port: 5001
+
+**Run Backend:**
+```bash
+npm start
+# OR for development with auto-reload
+npm run dev
+```
+
+### Frontend Setup
+```bash
+cd Module1_UserAuthentication/frontend
+npm install
+```
+
+**Run Frontend:**
+```bash
+npm start
+```
+- Opens at: http://localhost:3000
+- API endpoint: http://localhost:5001
+
+**Features:**
+- User registration (Graduate/Employee)
+- Login with JWT authentication
+- Profile management
+- Role-based access
+
+---
+
+## MODULE 2: EXPERIENCE SHARING
+
+### Backend Setup
+```bash
+cd Module2_ExperienceSharing/backend
+npm install
+```
+
+**Configure Environment:**
+- Edit `.env` file
+- Default port: 5002
+
+**Run Backend:**
+```bash
+npm start
+# OR
+npm run dev
+```
+
+### Frontend Setup
+```bash
+cd Module2_ExperienceSharing/frontend
+npm install
+```
+
+**Run Frontend:**
+```bash
+npm start
+```
+- Opens at: http://localhost:3000
+- API endpoint: http://localhost:5002
+
+**Features:**
+- Share interview experiences
+- Filter by company, role, difficulty
+- View detailed experiences
+- Edit/delete own experiences
+
+---
+
+## MODULE 3: PREPARATION GUIDANCE
+
+### Backend Setup
+```bash
+cd Module3_PreparationGuidance/backend
+npm install
+```
+
+**Configure Environment:**
+- Edit `.env` file
+- Default port: 5003
+
+**Run Backend:**
+```bash
+npm start
+# OR
+npm run dev
+```
+
+### Frontend Setup
+```bash
+cd Module3_PreparationGuidance/frontend
+npm install
+```
+
+**Run Frontend:**
+```bash
+npm start
+```
+- Opens at: http://localhost:3000
+- API endpoint: http://localhost:5003
+
+**Features:**
+- Browse preparation resources
+- Create custom checklists
+- Track preparation progress
+- Filter resources by category
+
+---
+
+## MODULE 4: SKILL GAP ANALYSIS
+
+### Backend Setup
+```bash
+cd Module4_SkillGapAnalysis/backend
+npm install
+```
+
+**Configure Environment:**
+- Edit `.env` file
+- Default port: 5004
+
+**Run Backend:**
+```bash
+npm start
+# OR
+npm run dev
+```
+
+### Frontend Setup
+```bash
+cd Module4_SkillGapAnalysis/frontend
+npm install
+```
+
+**Run Frontend:**
+```bash
+npm start
+```
+- Opens at: http://localhost:3000
+- API endpoint: http://localhost:5004
+
+**Features:**
+- Create skill assessments
+- Analyze skill gaps
+- Get personalized learning paths
+- Track readiness level
+
+---
+
+## RUNNING ALL MODULES TOGETHER
+
+### Start MongoDB
+```bash
+mongod
+```
+
+### Start All Backend Services (in separate terminals)
+```bash
+# Terminal 1
+cd Module1_UserAuthentication/backend && npm start
+
+# Terminal 2
+cd Module2_ExperienceSharing/backend && npm start
+
+# Terminal 3
+cd Module3_PreparationGuidance/backend && npm start
+
+# Terminal 4
+cd Module4_SkillGapAnalysis/backend && npm start
+```
+
+### Start Frontend (choose one module at a time)
+```bash
+# For Module 1
+cd Module1_UserAuthentication/frontend && npm start
+
+# For Module 2
+cd Module2_ExperienceSharing/frontend && npm start
+
+# For Module 3
+cd Module3_PreparationGuidance/frontend && npm start
+
+# For Module 4
+cd Module4_SkillGapAnalysis/frontend && npm start
+```
+
+---
+
+## CONNECTING MODULES
+
+All modules use the same MongoDB database: `interview_prep_platform`
+
+**Authentication Flow:**
+1. Register/Login in Module 1
+2. Copy the JWT token from localStorage
+3. Use the token in other modules for authenticated requests
+
+**Shared JWT Secret:**
+All modules use the same JWT_SECRET for token validation. Ensure all `.env` files have the same JWT_SECRET value.
+
+---
+
+## API ENDPOINTS
+
+### Module 1 (Port 5001)
+- POST `/api/auth/register` - Register user
+- POST `/api/auth/login` - Login user
+- GET `/api/auth/me` - Get current user
+- PUT `/api/auth/profile` - Update profile
+
+### Module 2 (Port 5002)
+- POST `/api/experiences` - Create experience
+- GET `/api/experiences` - Get all experiences
+- GET `/api/experiences/:id` - Get experience by ID
+- GET `/api/experiences/my-experiences` - Get user experiences
+- PUT `/api/experiences/:id` - Update experience
+- DELETE `/api/experiences/:id` - Delete experience
+
+### Module 3 (Port 5003)
+- POST `/api/resources` - Create resource
+- GET `/api/resources` - Get all resources
+- POST `/api/checklists` - Create checklist
+- GET `/api/checklists` - Get user checklists
+- POST `/api/checklists/:id/toggle` - Toggle checklist item
+
+### Module 4 (Port 5004)
+- POST `/api/assessments` - Create assessment
+- GET `/api/assessments` - Get user assessments
+- GET `/api/assessments/:id` - Get assessment by ID
+- GET `/api/skills` - Get skill database
+
+---
+
+## TROUBLESHOOTING
+
+**Port Already in Use:**
+```bash
+# Windows
+netstat -ano | findstr :5001
+taskkill /PID <PID> /F
+
+# Change port in .env file if needed
+```
+
+**MongoDB Connection Error:**
+- Ensure MongoDB is running
+- Check MongoDB URI in .env files
+- Default: mongodb://localhost:27017/interview_prep_platform
+
+**CORS Issues:**
+- All backends have CORS enabled
+- Frontend default: http://localhost:3000
+
+**Module Integration:**
+- Each module can run independently
+- Use Module 1 for authentication first
+- Token from Module 1 works across all modules
+
+---
+
+## TESTING THE APPLICATION
+
+1. **Start MongoDB**
+2. **Start Module 1 Backend** (Port 5001)
+3. **Start Module 1 Frontend** (Port 3000)
+4. **Register a new user** (Graduate or Employee)
+5. **Login and get JWT token**
+6. **Start other module backends** (Ports 5002, 5003, 5004)
+7. **Test other module frontends** (one at a time on Port 3000)
+
+---
+
+## PRODUCTION DEPLOYMENT
+
+**Environment Variables to Update:**
+- Change JWT_SECRET to a strong random string
+- Update MongoDB URI to production database
+- Set NODE_ENV=production
+- Configure CORS for production domains
+
+**Build Frontend:**
+```bash
+cd <module>/frontend
+npm run build
+```
+
+**Deploy:**
+- Backend: AWS EC2, Heroku, Render
+- Frontend: Vercel, Netlify, AWS S3
+- Database: MongoDB Atlas
+
+---
+
+## TECHNOLOGY STACK
+
+**Frontend:**
+- React.js 18.2.0
+- React Router DOM 6.15.0
+- Axios 1.5.0
+
+**Backend:**
+- Node.js with Express.js 4.18.2
+- MongoDB with Mongoose 7.5.0
+- JWT Authentication
+- bcryptjs for password hashing
+
+**Development:**
+- Nodemon for auto-reload
+- React Scripts for development server
