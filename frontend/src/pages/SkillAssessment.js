@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { skillAPI, recommendationAPI } from '../services/api';
+import { skillAPI } from '../services/api';
 import '../styles/skill-assessment.css';
 
 const SkillAssessment = () => {
