@@ -4,7 +4,7 @@ import '../styles/recommendations.css';
 
 const Recommendations = () => {
   const [recommendations, setRecommendations] = useState([]);
-  const [selectedRec, setSelectedRec] = useState(null);
+  const [, setSelectedRec] = useState(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
   const [targetCompany, setTargetCompany] = useState('');
