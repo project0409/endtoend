@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React from "react";
 import { experienceAPI } from '../services/api';
 import '../styles/share-experience.css';
 
